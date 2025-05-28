@@ -1,15 +1,26 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
   output   = "../generated/prisma"
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "mysql"
   url      = env("DATABASE_URL")
+}
+
+model avengers {
+  id          Int           @id @default(autoincrement())
+  nombre      String?       @db.VarChar(100)
+  alias       String?       @db.VarChar(100)
+  actor       String?       @db.VarChar(100)
+  habilidades habilidades[]
+}
+
+model habilidades {
+  id         Int       @id @default(autoincrement())
+  avenger_id Int?
+  habilidad  String?   @db.VarChar(100)
+  avengers   avengers? @relation(fields: [avenger_id], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "habilidades_ibfk_1")
+
+  @@index([avenger_id], map: "avenger_id")
 }
