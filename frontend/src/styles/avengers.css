@@ -1,52 +1,156 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 body {
-  margin: 0;
+  background-color: #0c0c0c;
+  color: #e0e0e0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #E0E0E0;
-  color: #212121;
-}
-
-h1 {
-  color: #B71C1C;
+  margin: 0;
+  padding: 40px;
   text-align: center;
-  margin-top: 20px;
 }
 
-ul {
-  list-style-type: none;
-  padding: 0;
-  max-width: 400px;
-  margin: 20px auto;
-  background-color: #FFFFFF;
-  border: 2px solid #0D47A1;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+.avenger-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-li {
-  padding: 10px;
-  border-bottom: 1px solid #ddd;
-  font-weight: bold;
-  color: #0D47A1;
+.avenger-container h1 {
+  font-size: 2.5rem;
+  color: #00aaff;
+  margin-bottom: 10px;
+  text-align: center;
+  border-bottom: 2px solid #003366;
+  padding-bottom: 30px;
+  width: 100%;
+  max-width: 800px;
 }
 
-li:last-child {
-  border-bottom: none;
-}
-
-button {
-  background-color: #FFD700;
-  color: #212121;
+.btn-primary {
+  background-color: #007acc;
+  color: white;
+  padding: 10px 20px;
+  margin: 20px;
   border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
-  font-weight: bold;
-  margin: 10px auto;
-  display: block;
-  transition: background-color 0.3s;
+  font-size: 1rem;
+  box-shadow: 0 0 10px rgba(0, 122, 204, 0.4);
+  transition: background-color 0.2s, transform 0.2s;
 }
 
-button:hover {
-  background-color: #FFC107;
+.btn-primary:hover {
+  background-color: #005f99;
+  transform: scale(1.05);
+}
+
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.avenger-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
+  height: 100%;
+  background-color: #1a1a1a;
+  border: 2px solid #003366;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 0 15px rgba(0, 51, 102, 0.4);
+  transition: transform 0.2s;
+}
+
+
+
+.avenger-card:hover {
+  transform: scale(1.03);
+}
+
+.avenger-card h2 {
+  font-size: 1.4rem;
+  color: #007acc;
+  margin-bottom: 10px;
+}
+
+.avenger-card p {
+  margin: 6px 0;
+  line-height: 1.4;
+}
+
+.avenger-card strong {
+  color: #ffffff;
+}
+
+.avenger-card ul {
+  list-style: none; 
+  padding-left: 0;
+  margin-top: 8px;
+}
+
+.avenger-card ul li {
+  margin-bottom: 12px;
+  position: relative;
+  padding-bottom: 6px;
+}
+
+.avenger-card ul li::after {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 60%;
+  background-color: #003366;
+  margin: 4px auto 0 auto; 
+  border-radius: 1px;
+}
+
+
+.card-buttons {
+  display: flex;
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-around;
+  margin-top: auto; 
+  padding-top: 20px;
+}
+
+.btn-edit, .btn-delete {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+} 
+
+.btn-edit {
+  background-color: #007acc;
+  color: #fff;
+}
+
+.btn-edit:hover {
+  background-color: #005fa3;
+}
+
+.btn-delete {
+  background-color: #cc0000;
+  color: #fff;
+}
+
+.btn-edit:hover,
+.btn-delete:hover {
+  transform: scale(1.05);
+}
+
+.btn-delete:hover {
+  background-color: #990000;
 }

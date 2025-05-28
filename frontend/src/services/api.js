@@ -8,7 +8,7 @@ export const getAvengers = () => API.get('/avengers') */
 
 
 //PRUEBA DE FRONTEND
-export const getAvengers = () => {
+/* export const getAvengers = () => {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve({
@@ -20,4 +20,23 @@ export const getAvengers = () => {
       });
     }, 500); 
   });
+};
+ */
+
+
+import axios from 'axios';
+
+const API = axios.create({
+  baseURL: 'http://localhost:3000/api' 
+});
+
+
+export const getAvengers = async () => {
+  const res = await API.get('/avengers');
+  
+  const data = res.data.map(avenger => ({
+    ...avenger,
+    habilidades: avenger.habilidades.map(h => h.habilidad) 
+  }));
+  return { data };
 };
