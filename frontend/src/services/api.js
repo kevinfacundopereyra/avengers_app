@@ -1,14 +1,14 @@
-import axios from 'axios';
+/* import axios from 'axios';
 
 const API = axios.create({
-  baseURL: 'http://localhost:5000/api', // Cambiás esto cuando tu compañero tenga el backend real
+  baseURL: 'http://localhost:5000/api', 
 });
 
-export const getAvengers = () => API.get('/avengers')
+export const getAvengers = () => API.get('/avengers') */
 
 
 //PRUEBA DE FRONTEND
-/* export const getAvengers = () => {
+export const getAvengers = () => {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve({
@@ -21,4 +21,3 @@ export const getAvengers = () => API.get('/avengers')
     }, 500); 
   });
 };
- */
